@@ -2,6 +2,7 @@ import {Column} from "./column.js";
 import {ColumnWinInspector} from "./columnWinInspector.js"
 import {RowWinInspector} from "./row-win-inspector.js"
 import {DiagonalWinInspector} from "./diagonalWinInspector.js"
+import {GameJsonSerializer} from "./game-json-serializer"
 
 class Game{
     constructor(p1name, p2name){
@@ -78,6 +79,13 @@ class Game{
             let diagonalInspector = new DiagonalWinInspector(arrSlice);
             this.winnerNumber = diagonalInspector.inspect()
         }
+        this.saveToLocalStorage();
+    }
+
+    saveToLocalStorage(){
+        let gameSerializer = new GameJsonSerializer(this);
+        let serializedGame = gameSerializer.serializeGame();
+        localStorage.setItem("game", serializedGame);
     }
 
 }
