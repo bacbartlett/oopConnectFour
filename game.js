@@ -1,5 +1,5 @@
 import {Column} from "./column.js";
-import {ColumnWinInspector} from "./columnWinInspector"
+import {ColumnWinInspector} from "./columnWinInspector.js"
 
 class Game{
     constructor(p1name, p2name){
