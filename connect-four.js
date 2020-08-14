@@ -85,6 +85,8 @@ function newGameButtonClick(){
 function clickTargetClicked(event){
     if(event.target.classList.contains("full")){
         return;
+    } else if(game.winnerNumber !== 0){
+        return
     }
     const columnNumber = event.target.id[event.target.id.length -1];
     game.playInColumn(columnNumber);

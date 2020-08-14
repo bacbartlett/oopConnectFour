@@ -4,21 +4,23 @@ class ColumnWinInspector {
     }
 
     inspect(){
-        if(this.column.length() > 3){
-            for(i = 0; i <=3; i++){
-                const baseToken = this.column.getTokenAt(i)
-                if(baseToken !== undefined){
-                    for(j = 1; j <= 3; j++){
-                        if(this.column.getTokenAt(j) !== baseToken){
+        if(this.column.getLength() > 3){
+            for(let i = 0; i <=3; i++){
+                const baseToken = this.column.getTokenAt(i);
+                if(baseToken !== null){
+                    for(let j = 1; j <= 3; j++){
+                        if(this.column.getTokenAt(i + j) !== baseToken){
                             break;
-                        } else if(i === 3){
+                        } else if(j === 3){
                             return baseToken
                         }
                     }
                 }
-                return 0;
+                
             }
+            
         }
+        return 0;
     }
 }
 

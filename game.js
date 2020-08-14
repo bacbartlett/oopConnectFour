@@ -12,7 +12,13 @@ class Game{
     getName(){
         if(this.winnerNumber === 0){
             return `${this.name1} vs. ${this.name2}`
-    } else if(this.winnerNumber === 3){
+    } else if(this.winnerNumber === 1){
+        return `${this.name1} Wins`
+    }
+    else if(this.winnerNumber === 2){
+        return `${this.name2} Wins`
+    }
+    else if(this.winnerNumber === 3){
         return `${this.name1} TIED ${this.name2}`
     }
 }
@@ -24,6 +30,7 @@ class Game{
         }else{
             this.playerTurn = 1
         }
+        this.checkForColumnWin();
         this.checkForTie();
     }
 
@@ -45,7 +52,7 @@ class Game{
     }
 
     checkForColumnWin(){
-        for(i = 0; i<this.columns.length;i++){
+        for(let i = 0; i<this.columns.length;i++){
             if(this.winnerNumber === 0){
                 this.winnerNumber = new ColumnWinInspector(this.columns[i]).inspect();
             }
